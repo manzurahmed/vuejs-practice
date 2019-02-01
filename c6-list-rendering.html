@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Data binding</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script src="vue.js"></script>
+</head>
+<body>
+    <h1>6 Vue.js 2 - List rendering</h1>
+
+    <p>vuejs এ লিস্ট ইটারেট করার জন্য v-for ডিরেক্টিভ ব্যবহার করা হয়। </p>
+
+    <div id="root">
+
+        <ul v-for="(skill, i) in skills">
+            {{i+1}}. {{ skill.name }} ({{ skill.experience }})
+        </ul>
+        
+    </div>
+
+    <script type="text/javascript" src="vue.js"></script>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: "#root",
+            data: {
+                skills: [
+                    { name: "HTML", experience: 15 },
+                    { name: "CSS", experience: 15 },
+                    { name: "Javascript", experience: 3 },
+                    { name: "jQuery", experience: 3 },
+                    { name: "NodeJS", experience: 2 },
+                    { name: "VueJS", experience: 1 },
+                ]
+            }
+        });
+    </script>
+</body>
+</html>
