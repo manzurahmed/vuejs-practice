@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Conditional Rendering</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script src="vue.js"></script>
+</head>
+<body>
+    <h1>7 Vue.js 2 - Conditional Rendering</h1>
+
+    <p>vuejs এ কন্ডিশনাল রেন্ডারিং। </p>
+
+    <div id="root">
+
+        <ul v-for="(skill, i) in skills">
+            <li v-if="skill.experience > 3">
+                <p>{{i+1}}. {{ skill.name }} ({{ skill.experience }})</p>
+            </li>
+        </ul>
+        <p>v-if ডিরেকটিভের পরিবর্তে v-show ডিরেকটিভ ব্যবহার করা যেতে পারে। একই রেজাল্ট দেখাবে। কিন্তু, ব্রাউজারে Inspect Element করে সোর্স দেখলে দেখা যাবে, v-if এর ক্ষেত্রে DOM এ ঐ li এলিমেন্টটে দেখাচ্ছে না। অন্য দিকে, v-show এর ক্ষেত্রে li এলিমেন্টটা দেখাচ্ছে কিন্তু, li এ একটা inline css যুক্ত হয়েছে, যেখানে style="display: none;" ব্যবহার করা হয়েছে।</p>
+        <p>আরেকটি উদাহরণঃ</p>
+        <p v-if="show">
+            Showing....
+        </p>
+        <p v-else>
+            Not showing
+        </p>
+    </div>
+
+    <script type="text/javascript" src="vue.js"></script>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: "#root",
+            data: {
+                skills: [
+                    { name: "HTML", experience: 15 },
+                    { name: "CSS", experience: 15 },
+                    { name: "Javascript", experience: 3 },
+                    { name: "jQuery", experience: 3 },
+                    { name: "NodeJS", experience: 2 },
+                    { name: "VueJS", experience: 1 },
+                ],
+                show: true
+            }
+        });
+    </script>
+</body>
+</html>
