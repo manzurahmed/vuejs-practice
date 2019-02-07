@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>c8-events-methods</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script src="vue.js"></script>
+</head>
+<body>
+    <h1>8 Vue.js 2 - Event and Methods</h1>
+
+    <p>vuejs এ কিভাবে method তৈরী করে তা কোন এলিমেন্টের সাথে এ্যাটাচ করা যায়, সে বিষয়ে এই ভিডিওতে দেখানো হয়েছে।</p>
+
+    <div id="root">
+
+        <ul>
+            <li v-for="(skill, i) in skills">
+                <p>{{ i+1 }}. {{ skill }} <button @click="removeSkill(i)">x</button></p>
+            </li>
+        </ul>
+
+        <input type="text" v-model="newSkill">
+        <button @click="addNewSkill()">Add</button>
+        
+        <p>Note:</p>
+        <p><b>v-on:click="addNewSkill()"</b> এর শর্টহ্যান্ড হিসাবে শুধু @click="addNewSkill()" লিখলে কাজ করবে।</p>
+    </div>
+
+    <script type="text/javascript" src="vue.js"></script>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: "#root",
+            data: {
+                newSkill: "",
+                skills: [ "HTML", "CSS", "JS" ]
+            },
+            methods: {
+                addNewSkill: function(){
+                    this.skills.push(this.newSkill);
+                    this.newSkill = "";
+                },
+                removeSkill: function(i){
+                    this.skills.splice(i, 1);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
